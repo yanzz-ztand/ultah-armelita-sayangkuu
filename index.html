@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffb6d0">
+<title>Happy Birthday Sayang 💗</title>
+<style>
+:root{--pink:#ff6fa8;--light:#ffe5ef;--deep:#b82e69;--cream:#fff9fc}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Georgia,"Times New Roman",serif;color:#7b234b;background:radial-gradient(circle at top,#fff8fc 0,#ffe0ec 48%,#ffc1d9 100%);overflow-x:hidden}
+main{width:min(920px,100%);margin:auto;padding:28px 18px 60px;text-align:center}
+h1{font-size:clamp(2rem,8vw,4rem);margin:12px 0;color:#c53c78;text-shadow:0 3px 0 #fff}
+.sub{font-family:Arial,sans-serif;letter-spacing:2px;font-size:.8rem;text-transform:uppercase;color:#a64a72}
+.date{display:inline-block;background:#fff8;border:1px solid #fff;padding:10px 18px;border-radius:999px;font-family:Arial,sans-serif;font-weight:bold}
+.intro{max-width:600px;margin:18px auto;line-height:1.7;font-family:Arial,sans-serif}
+.gift-wrap{display:flex;justify-content:center;margin:34px auto 18px;min-height:205px;align-items:center}
+.gift{position:relative;width:150px;height:120px;cursor:pointer;filter:drop-shadow(0 12px 12px #b82e6933);animation:bob 2s ease-in-out infinite;outline:none}
+.box{position:absolute;bottom:0;width:150px;height:92px;background:linear-gradient(135deg,#ff8cba,#f14d91);border-radius:8px}
+.box:before{content:"";position:absolute;left:62px;top:0;width:26px;height:100%;background:#fff0a8}
+.lid{position:absolute;top:15px;left:-8px;width:166px;height:28px;border-radius:7px;background:linear-gradient(135deg,#ffafd0,#ff6fa8);transition:transform .8s;z-index:2}
+.lid:before{content:"";position:absolute;left:70px;top:0;width:26px;height:100%;background:#fff0a8}
+.bow{position:absolute;top:-7px;left:57px;width:36px;height:25px;z-index:3}
+.bow:before,.bow:after{content:"";position:absolute;width:23px;height:18px;border:7px solid #fff0a8;border-radius:50% 50% 10% 50%;transform:rotate(25deg)}
+.bow:after{left:16px;transform:scaleX(-1) rotate(25deg)}
+.gift.open .lid{transform:translate(-18px,-53px) rotate(-20deg)}
+.gift.open{animation:none}
+.tap{font:14px Arial,sans-serif;color:#9d4770}
+.card{display:none;background:#fffdfdce;border:1px solid #fff;border-radius:26px;padding:24px 20px;margin:24px auto;max-width:720px;box-shadow:0 15px 45px #c63f7b20;animation:rise .8s ease}
+.card.show{display:block}
+.card h2{font-size:clamp(1.7rem,6vw,2.6rem);margin:5px 0 16px;color:#cf3f7b}
+.message{font-size:1.05rem;line-height:1.9;white-space:pre-line}
+.photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px auto;max-width:650px}
+.photo{aspect-ratio:4/5;border:2px dashed #f18ab5;border-radius:18px;background:linear-gradient(145deg,#fff7fb,#ffd8e8);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;position:relative;font-family:Arial,sans-serif;color:#bd4d7e;padding:10px}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.photo .placeholder{font-size:2rem}
+.photo small{margin-top:8px}
+.photo input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.photo:focus-within{outline:3px solid #ff8cba}
+.note{font:13px/1.6 Arial,sans-serif;color:#97516f;margin:12px auto}
+button{border:0;border-radius:999px;padding:13px 19px;background:#e94d91;color:white;font-weight:bold;font-size:15px;cursor:pointer;box-shadow:0 6px 15px #e94d9140;margin:6px}
+button.secondary{background:#fff;color:#bd3976;border:1px solid #ffc0d8}
+footer{font:13px Arial,sans-serif;margin-top:35px;color:#a94d76}
+.heart{position:fixed;bottom:-30px;pointer-events:none;animation:floatUp linear forwards;z-index:5}
+.sparkle{position:absolute;pointer-events:none}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes floatUp{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+@media(min-width:600px){.photos{grid-template-columns:repeat(3,minmax(0,1fr))}.photo:last-child:nth-child(odd){grid-column:auto}}
+</style>
+</head>
+<body>
+<main>
+  <div class="sub">A little gift made with love</div>
+  <h1>Happy Birthday 💗</h1>
+  <div class="date">22 Oktober 2026 🎂</div>
+  <p class="intro">ada kado kecil buat perempuan spesial hari ini<br>klik kadonya yaa sayanggg 🎀</p>
+
+  <div class="gift-wrap">
+    <div class="gift" id="gift" role="button" tabindex="0" aria-label="Buka kado ulang tahun">
+      <div class="lid"></div><div class="bow"></div><div class="box"></div>
+    </div>
+  </div>
+  <div class="tap" id="tapText">♡ klik kadonya buat buka ♡</div>
+
+  <section class="card" id="card">
+    <div style="font-size:2rem">🎂 🌷 💗 🌷 🎂</div>
+    <h2>Selamat Ulang Tahun Sayanggg</h2>
+    <div class="message">selamat ulang tahun yaaa cintakuuu 🤍
+
+selamat panjang umur sayanggg semogaa kamu selalu sehat selalu bahagia dan semua doa baik kamu bisa terkabul satu satu
+
+semogaa di umur kamu yang baru ini lebih banyak hal indah yang dateng ke hidup kamu semogaa kamu selalu dikelilingi orang orang yang tulus sayang sama kamu dan semogaa kamu selalu punya alasan buat senyum setiap harinya
+
+maaff yaaa sayanggg aku belum bisa kasih hadiah yang spesial buat kamu sekarang aku cuma bisa kasih kado kecil ini sama kata kata tulus dari hati aku sendiri mungkin sederhana tapi aku bikin ini khusus buat kamu karena kamu berharga banget buat aku 🥹💗
+
+makasiii udah hadir di hidup aku makasiii udah jadi seseorang yang spesial buat aku semogaa kita bisa terus sama sama belajar saling ngerti dan saling jaga yaaa
+
+jangan lupa bahagia yaaa cintakuuu jaga kesehatan kamu baik baik dan jangan pernah ngerasa kamu sendirian
+
+happy birthday sekali lagi sayanggg akuuu sayanggg banget sama kamuuu 💗🫶🏻</div>
+    <div style="font-size:2rem;margin-top:18px">💌</div>
+  </section>
+
+  <h2 style="color:#c53c78;margin-top:36px">Our little memories 📸</h2>
+  <p class="note">masukin foto foto dia lewat kotak di bawah yaa. pilih gambar dari galeri HP kamu.</p>
+  <div class="photos">
+    <label class="photo"><span class="placeholder">♡</span><span class="caption">Foto cantik kamu</span><small>tekan untuk pilih foto</small><img alt="Foto 1"><input type="file" accept="image/*" aria-label="Pilih foto pertama"></label>
+    <label class="photo"><span class="placeholder">♡</span><span class="caption">Senyum favorit aku</span><small>tekan untuk pilih foto</small><img alt="Foto 2"><input type="file" accept="image/*" aria-label="Pilih foto kedua"></label>
+    <label class="photo"><span class="placeholder">♡</span><span class="caption">Perempuan kesayangan</span><small>tekan untuk pilih foto</small><img alt="Foto 3"><input type="file" accept="image/*" aria-label="Pilih foto ketiga"></label>
+  </div>
+  <p class="note">foto yang dipilih tampil di halaman ini selama halaman masih terbuka. file foto tidak diunggah ke mana pun.</p>
+
+  <div>
+    <button id="musicBtn">▶ Putar musik HBD</button>
+    <button class="secondary" id="reopenBtn">💌 Buka ucapan lagi</button>
+  </div>
+  <p class="note">kalau musik belum bunyi tekan tombol putar yaa karena browser HP perlu sentuhan dulu.</p>
+  <footer>made with love ♡ untuk kamu · 22.10.2026</footer>
+</main>
+
+<script>
+const gift=document.getElementById('gift');
+const card=document.getElementById('card');
+const tapText=document.getElementById('tapText');
+function openGift(){
+  gift.classList.add('open');
+  card.classList.add('show');
+  tapText.textContent='♡ kado kecil dari hati aku buat kamu ♡';
+  burstHearts();
+  if(!window.musicTried){playMusic();window.musicTried=true;}
+}
+gift.addEventListener('click',openGift);
+gift.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openGift();}});
+document.getElementById('reopenBtn').addEventListener('click',()=>{card.classList.add('show');card.scrollIntoView({behavior:'smooth',block:'center'});});
+const musicBtn=document.getElementById('musicBtn');
+let audioCtx=null, musicTimer=null, noteIndex=0, musicOn=false;
+const melody=[
+  [392,.34],[392,.34],[440,.68],[392,.68],[523,.68],[494,1.2],
+  [392,.34],[392,.34],[440,.68],[392,.68],[587,.68],[523,1.2],
+  [392,.34],[392,.34],[784,.68],[659,.68],[523,.68],[494,.68],[440,1.2],
+  [698,.34],[698,.34],[659,.68],[523,.68],[587,.68],[523,1.3]
+];
+function playNote(){
+  if(!musicOn||!audioCtx)return;
+  const [freq,duration]=melody[noteIndex%melody.length];
+  const osc=audioCtx.createOscillator(), gain=audioCtx.createGain();
+  osc.type='sine';osc.frequency.value=freq;
+  gain.gain.setValueAtTime(.0001,audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(.13,audioCtx.currentTime+.025);
+  gain.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+duration*.88);
+  osc.connect(gain);gain.connect(audioCtx.destination);
+  osc.start();osc.stop(audioCtx.currentTime+duration);
+  noteIndex++;
+  musicTimer=setTimeout(playNote,duration*1000+70);
+}
+async function playMusic(){
+  try{
+    audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
+    await audioCtx.resume();musicOn=true;playNote();
+    musicBtn.textContent='❚❚ Jeda musik HBD';
+  }catch(e){musicBtn.textContent='▶ Coba putar musik HBD lagi';}
+}
+musicBtn.addEventListener('click',async()=>{
+  if(!musicOn){await playMusic();}
+  else{musicOn=false;clearTimeout(musicTimer);if(audioCtx)await audioCtx.suspend();musicBtn.textContent='▶ Putar musik HBD';}
+});
+document.querySelectorAll('.photo input').forEach(input=>{
+  input.addEventListener('change',()=>{
+    const file=input.files&&input.files[0];if(!file)return;
+    const box=input.closest('.photo'),img=box.querySelector('img'),url=URL.createObjectURL(file);
+    img.src=url;img.style.display='block';
+    box.querySelector('.placeholder').style.display='none';
+    box.querySelector('.caption').style.display='none';
+    box.querySelector('small').textContent='foto dipilih ✓';
+  });
+});
+function burstHearts(){
+  for(let i=0;i<18;i++){
+    const h=document.createElement('span');h.className='heart';h.textContent=['💗','💕','♡','✨','🌸'][i%5];
+    h.style.left=(Math.random()*100)+'vw';h.style.fontSize=(16+Math.random()*18)+'px';
+    h.style.animationDuration=(3+Math.random()*3)+'s';document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6500);
+  }
+}
+setInterval(()=>{const h=document.createElement('span');h.className='heart';h.textContent=['♡','💗','✨'][Math.floor(Math.random()*3)];h.style.left=Math.random()*100+'vw';h.style.fontSize=(14+Math.random()*12)+'px';h.style.animationDuration=(6+Math.random()*5)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),12000);},1200);
+</script>
+</body>
+</html>
